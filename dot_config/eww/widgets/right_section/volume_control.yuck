@@ -1,0 +1,72 @@
+;; Volume Widget with Hover Expansion
+;; First, define variables to control the widget state and volume
+
+(defvar volume_reveal false)  ;; Controls whether the slider is visible
+(defvar volume_value 50)      ;; Current volume value (0-100)
+(defvar volume_muted false)   ;; Whether audio is muted
+
+;; Define script to get current volume (using pactl or amixer)
+(defpoll current_volume :interval "5s"
+  :initial "50"
+  "pamixer --get-volume")
+
+;; Define script to check mute status
+(defpoll is_muted :interval "5s"
+  :initial "false"
+  "pamixer --get-mute")
+
+;; Function to update volume when slider is moved
+(defvar volume_change "pamixer --set-volume {}")
+
+;; Function to toggle mute
+(defvar volume_toggle "pamixer --toggle-mute")
+
+;; Helper function to choose the appropriate volume icon using Nerd Font
+(defwidget volume_icon []
+  (box
+    :class "volume-icon"
+    (label :text {
+      is_muted == "true" ? "󰸈" :
+      current_volume == 0 ? "󰸈" :
+      current_volume < 30 ? "󰕿" :
+      current_volume < 70 ? "󰖀" : "󰕾"
+    })
+  )
+)
+
+;; Main volume widget
+(defwidget volume []
+  (eventbox
+    :onhover "${EWW_CMD} update volume_reveal=true"
+    :onhoverlost "${EWW_CMD} update volume_reveal=false"
+    (box
+      :class "volume-module"
+      :space-evenly false
+      :orientation "h"
+      :spacing "3"
+      
+      ;; Volume icon that's always visible
+      (button
+        :onclick "${volume_toggle}"
+        :class "volume-button"
+        (volume_icon)
+      )
+      
+      ;; Slider that appears on hover
+      (revealer
+        :transition "slideleft"
+        :reveal volume_reveal
+        :duration "250ms"
+        (scale
+          :class "volume-slider"
+          :value current_volume
+          :tooltip "${current_volume}%"
+          :min 0
+          :max 100
+          :onchange volume_change
+        )
+      )
+    )
+  )
+)
+

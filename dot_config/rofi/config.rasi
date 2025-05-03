@@ -1,0 +1,130 @@
+* {
+    background:             #1a1b26;
+    background-alt:         #24283b;
+    foreground:             #c0caf5;
+    border:                 #1d202f;
+    selected:               #7aa2f7;
+    urgent:                 #f7768e;
+    blue:                   #7aa2f7;
+    purple:                 #9d7cd8;
+    green:                  #9ece6a;
+    red:                    #f7768e;
+    inactive:               #565f89;
+}
+
+window {
+    background-color: @background;
+    border:           1px;
+    border-radius:    6px;
+    border-color:     @border;
+    padding:          15;
+}
+
+mainbox {
+    border:  0;
+    padding: 0;
+}
+
+message {
+    border:       0px;
+    border-color: @blue;
+    padding:      1px;
+}
+
+textbox {
+    text-color: @foreground;
+}
+
+listview {
+    fixed-height: 0;
+    border:       0px;
+    border-color: @blue;
+    spacing:      2px;
+    scrollbar:    false;
+    padding:      2px 0px 0px;
+}
+
+element {
+    border:  0;
+    padding: 2px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element normal.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+
+element normal.urgent {
+    background-color: @urgent;
+    text-color:       @background;
+}
+
+element normal.active {
+    background-color: @green;
+    text-color:       @background;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color:       @background;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color:       @background;
+}
+
+element selected.active {
+    background-color: @green;
+    text-color:       @background;
+}
+
+element alternate.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+
+element alternate.urgent {
+    background-color: @urgent;
+    text-color:       @background;
+}
+
+element alternate.active {
+    background-color: @green;
+    text-color:       @background;
+}
+
+button {
+    text-color: @foreground;
+}
+
+button selected {
+    background-color: @selected;
+    text-color:       @background;
+}
+
+inputbar {
+    spacing:    0;
+    text-color: @foreground;
+    padding:    1px;
+}
+
+case-indicator {
+    spacing:    0;
+    text-color: @foreground;
+}
+
+entry {
+    spacing:    0;
+    text-color: @foreground;
+}
+
+prompt {
+    spacing:    0;
+    text-color: @purple;
+}

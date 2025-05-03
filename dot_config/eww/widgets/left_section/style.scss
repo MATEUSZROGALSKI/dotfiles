@@ -1,0 +1,61 @@
+// Tokyo Night color palette (self-contained)
+$tokyo-bg: #1a1b26;
+$tokyo-fg: #c0caf5;
+$tokyo-blue: #7aa2f7;
+$tokyo-cyan: #7dcfff;
+$tokyo-magenta: #bb9af7;
+$tokyo-green: #9ece6a;
+$tokyo-yellow: #e0af68;
+$tokyo-red: #f7768e;
+$tokyo-divider: #414868;
+
+.left-section {
+    background: $tokyo-bg;
+    color: $tokyo-fg;
+    padding: 0 12px;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.rofi-launcher {
+    background: $tokyo-blue;
+    color: $tokyo-bg;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 18px;
+    transition: background 0.2s;
+
+    &:hover {
+        background: $tokyo-cyan;
+        color: $tokyo-bg;
+    }
+}
+
+.divider {
+    width: 2px;
+    height: 28px;
+    background: $tokyo-divider;
+    margin: 0 10px;
+    border-radius: 1px;
+}
+
+.minimized-apps {
+    display: flex;
+    gap: 8px;
+}
+
+.minimized-app {
+    background: transparent;
+    color: $tokyo-yellow;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 16px;
+    transition: background 0.2s;
+
+    &:hover {
+        background: $tokyo-magenta;
+        color: $tokyo-bg;
+    }
+}

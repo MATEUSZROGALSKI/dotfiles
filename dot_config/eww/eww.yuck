@@ -1,0 +1,37 @@
+(include "./widgets/left_section/main.yuck")
+(include "./widgets/middle_section/main.yuck")
+(include "./widgets/right_section/main.yuck")
+
+(defwidget status-bar []
+  (box
+    :class "status-bar"
+    :orientation "h"
+    :halign "fill"
+    :valign "start"
+    :space-evenly false
+    :spacing 0
+    (box :class "bar-section left" :hexpand false :halign "start"
+      (left-section)
+    )
+    (box :class "bar-section middle" :hexpand true :halign "center"
+      (middle-section)
+    )
+    (box :class "bar-section right" :hexpand false :halign "end"
+      (right-section)
+    )
+  )
+)
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0%"
+                     :y "10px"
+                     :width "98%"
+                     :height "30px"
+                     :anchor "top center")
+  :reserve (struts :distance "40px" :side "top")
+  :stacking "fg"
+  :wm-ignore false
+  :windowtype "dock"
+  (status-bar)
+)

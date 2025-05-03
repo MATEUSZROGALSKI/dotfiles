@@ -1,0 +1,36 @@
+// Volume Control Widget Styles
+@import "../../colors.scss";
+
+.volume-module {
+    background: $tokyo-bg-alt;
+    border-radius: 8px;
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.volume-button {
+    background: none;
+    border: none;
+    color: $tokyo-blue;
+    font-size: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $tokyo-cyan;
+    }
+}
+
+.volume-slider {
+    width: 80px;
+    accent-color: $tokyo-blue;
+    margin-left: 8px;
+}
+
+.volume-icon {
+    margin-right: 6px;
+    color: $tokyo-fg;
+}

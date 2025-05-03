@@ -1,0 +1,20 @@
+; Right Section Widget for Eww Status Bar
+; Displays: Volume, Network, Keyboard Layout, Nvidia GPU, Notification Drawer Button
+
+(include "/home/mrogalski/.config/eww/widgets/right_section/volume_control.yuck")
+(include "/home/mrogalski/.config/eww/widgets/right_section/nvidia_indicator.yuck")
+
+(defwidget right-section [] 
+  (box :class "right-section"
+    (box :class "status-item"
+      (volume))
+    (box :class "status-item"
+      (image :path "./network.sh" :tooltip "Network"))
+    (box :class "status-item"
+      (image :path "./kbd_layout.sh" :tooltip "Keyboard Layout"))
+    (box :class "status-item"
+      (nvidia-indicator))
+    (button :class "notif-btn" :onclick "eww open notification_drawer"
+      (label :text "")) ; FontAwesome bell icon
+  )
+)

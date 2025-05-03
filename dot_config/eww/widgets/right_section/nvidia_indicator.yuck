@@ -1,0 +1,11 @@
+(defpoll nvidia_status :interval "5s"
+	"~/.config/eww/scripts/check_nvidia.sh")
+
+(defwidget nvidia-indicator []
+	(box
+		:orientation "horizontal"
+		:space-evenly false
+		:class "nvidia-widget"
+		(label :text (if (nvidia_status "ON") "NVIDIA" "") :visible (nvidia_status "ON"))
+	)
+)

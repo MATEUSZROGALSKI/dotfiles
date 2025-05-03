@@ -1,0 +1,15 @@
+// Horizontal Tokyo Bar (adapted from raexera/tokyo)
+
+@import "./colors.scss"; // Color variables
+
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+}
+
+.bar {
+    background-color: $tokyo-bg;
+    padding: 5px 10px;
+    margin: 0 5px; // Creates 5px gap on left and right
+}

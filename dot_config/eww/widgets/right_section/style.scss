@@ -1,0 +1,39 @@
+// Import styles for volume control and nvidia indicator
+@import "./volume_control.scss";
+@import "./nvidia_indicator.scss";
+// Import Tokyo Night palette from root colors.scss
+@import "../../colors.scss";
+
+.right-section {
+    background: $tokyonight_bg;
+    color: $tokyonight_fg;
+    padding: 0 16px;
+    border-radius: 8px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: $tokyonight_blue;
+    padding: 0 8px;
+}
+
+.notif-btn {
+    background: $tokyonight_yellow;
+    color: $tokyonight_bg;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 18px;
+    transition: background 0.2s;
+
+    &:hover {
+        background: $tokyonight_orange;
+        color: $tokyonight_fg;
+    }
+}

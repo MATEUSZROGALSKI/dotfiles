@@ -1,0 +1,10 @@
+(defwidget middle-section []
+  (box :class "middle-section" :orientation "h" :halign "center" :valign "center"
+    (label
+      :id "datetime"
+      :class "datetime"
+      :text (date "%a, %d %b %Y  %H:%M:%S")
+      :interval 1
+    )
+  )
+)

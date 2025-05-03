@@ -1,0 +1,28 @@
+; Eww left section widget for status bar
+(defpoll minimized-windows :interval "5s"
+  :initial "[]"
+  "widgets/left_section/minimized_windows.sh")
+
+(defwidget left-section []
+  (box :class "left-section"
+    :orientation "h"
+    :spacing 8
+    (button
+      :class "rofi-launcher"
+      :onclick "rofi -show drun &"
+      (label :text "" :size 18)) ; Nerd Font icon for launcher
+
+    (box :class "divider" :orientation "v" :space-evenly false)
+
+    (box :class "minimized-apps" :orientation "h"
+      (for window in minimized-windows
+        (button
+          :class "minimized-app"
+          :tooltip (get window "title")
+          :onclick "./widgets/left_section/minimized_windows.sh restore ${window.id}"
+          (label :text "${window.icon} ${window.name}")
+        )
+      )
+    )
+  )
+)
