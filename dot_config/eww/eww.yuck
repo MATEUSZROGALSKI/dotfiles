@@ -6,10 +6,8 @@
   (box
     :class "status-bar"
     :orientation "h"
-    :halign "fill"
     :valign "start"
     :space-evenly false
-    :spacing 0
     (box :class "bar-section left" :hexpand false :halign "start"
       (left-section)
     )
@@ -27,9 +25,8 @@
   :geometry (geometry :x "0%"
                      :y "10px"
                      :width "98%"
-                     :height "30px"
+                     :height "32px"
                      :anchor "top center")
-  :reserve (struts :distance "40px" :side "top")
   :stacking "fg"
   :wm-ignore false
   :windowtype "dock"

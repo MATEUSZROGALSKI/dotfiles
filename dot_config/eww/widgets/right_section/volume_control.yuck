@@ -1,18 +1,18 @@
 ;; Volume Widget with Hover Expansion
 ;; First, define variables to control the widget state and volume
 
-(defvar volume_reveal false)  ;; Controls whether the slider is visible
-(defvar volume_value 50)      ;; Current volume value (0-100)
-(defvar volume_muted false)   ;; Whether audio is muted
+(defvar volume_reveal true)  ;; Controls whether the slider is visible
 
 ;; Define script to get current volume (using pactl or amixer)
-(defpoll current_volume :interval "5s"
-  :initial "50"
+(defpoll current_volume
+  :interval "60s"
+  :run-while false
   "pamixer --get-volume")
 
 ;; Define script to check mute status
-(defpoll is_muted :interval "5s"
-  :initial "false"
+(defpoll is_muted
+  :interval "60s"
+  :run-while false
   "pamixer --get-mute")
 
 ;; Function to update volume when slider is moved
@@ -47,7 +47,7 @@
       
       ;; Volume icon that's always visible
       (button
-        :onclick "${volume_toggle}"
+        :onclick "pamixer --toggle-mute && eww update is_muted=\"$(pamixer --get-mute)\""
         :class "volume-button"
         (volume_icon)
       )
@@ -63,7 +63,7 @@
           :tooltip "${current_volume}%"
           :min 0
           :max 100
-          :onchange volume_change
+          :onchange "pamixer --set-volume {} && eww update volume_current=\"{}\""
         )
       )
     )

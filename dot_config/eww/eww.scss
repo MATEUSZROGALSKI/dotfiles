@@ -5,11 +5,149 @@
 * {
     all: unset;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .bar {
     background-color: $tokyo-bg;
     padding: 5px 10px;
     margin: 0 5px; // Creates 5px gap on left and right
+}
+
+/**
+* Left section of the bar
+* Contains the workspace name and rofi launcher
+*/
+.left-section {
+    background: $tokyo-bg;
+    color: $tokyo-fg;
+    padding: 0 12px;
+    border-radius: 8px;
+}
+
+.rofi-launcher {
+    background: $tokyo-blue;
+    color: $tokyo-bg;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    transition: background 0.2s;
+
+    &:hover {
+        background: $tokyo-cyan;
+        color: $tokyo-bg;
+    }
+}
+
+.divider {
+    background: $tokyo-divider;
+    margin: 0 10px;
+    border-radius: 1px;
+}
+
+.minimized-apps {
+    background: $tokyo-bg-alt;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin: 0 10px;
+}
+
+.minimized-apps:hover {
+    background: $tokyo-blue;
+    color: $tokyo-bg;
+}
+
+.minimized-app {
+    background: transparent;
+    color: $tokyo-yellow;
+    border: none;
+    padding: 2px 6px;
+    transition: background 0.2s;
+
+    &:hover {
+        background: $tokyo-magenta;
+        color: $tokyo-bg;
+        border-top: 2px solid $tokyo-blue;
+    }
+}
+
+/**
+* Middle section of the bar
+* Contains the current time and date
+*/
+.middle-section {
+    background: $tokyo-bg;
+    border-radius: 8px;
+    padding: 0.2em 1.2em;
+    border: 1px solid $tokyo-panel-border;
+}
+
+.datetime {
+    color: $tokyo-blue;
+    font-family: "JetBrains Mono", "Fira Mono", monospace;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 2px $tokyo-bg-alt;
+}
+
+/**
+* Right section of the bar
+* Contains the battery status and volume
+*/
+.right-section {
+    background: $tokyo-bg;
+    color: $tokyo-fg;
+    padding: 0 16px;
+    border-radius: 8px;
+    min-height: 32px;
+}
+
+.status-item {
+    font-size: 18px;
+    color: $tokyo-bg-alt;
+    padding: 0 8px;
+}
+
+.notif-btn {
+    background: $tokyo-bg;
+    color: $tokyo-fg;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 18px;
+    transition: background 0.2s;
+
+    &:hover {
+        background: $tokyo-bg-alt;
+        color: $tokyo-cyan;
+    }
+}
+
+.volume-module {
+    background: $tokyo-bg-alt;
+    border-radius: 8px;
+    padding: 4px 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.volume-button {
+    background: none;
+    border: none;
+    color: $tokyo-blue;
+    font-size: 18px;
+    margin-right: 8px;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $tokyo-cyan;
+    }
+}
+
+.volume-slider {
+    margin-left: 8px;
+}
+
+.volume-icon {
+    margin-right: 6px;
+    color: $tokyo-fg;
 }
